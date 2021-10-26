@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h1 id="title"></h1>
+    <p class="content"></p>
+    <p class="description"></p>
+    <div id="createDOM">
+
+    </div>
+    <script>
+        
+        let title = document.getElementById("title");
+        let content = document.getElementsByClassName('content');
+        let allparagraph = document.getElementsByTagName("p");
+
+        function output(msg){
+            console.log(msg);
+        }
+
+        output(title);
+        output(content);
+        output(allparagraph);
+
+        // استخدام innerHTML لاضافة محتوي 
+        let title_content = "This is a title";
+        let cap = title_content.toUpperCase();
+        title.innerHTML = cap;
+
+        content[0].innerHTML = "This first paraghraph"; // القيمة صفر لانها عبارة عن collection
+        allparagraph[1].innerHTML = "This is the second paragraph";
+
+        // اضافة عنصر عن طريق شجرة الدوم 
+        let newParagraph = document.createElement("p");
+        newParagraph.innerHTML = "<strong>This is added paragraph</strong>";
+        let addDome = document.getElementById("createDOM");
+        addDome.appendChild(newParagraph);
+    </script>
+</body>
+</html>
